@@ -1,0 +1,37 @@
+<div id="<%= dom_id book %>">
+
+  <div class="row">
+    <div class="col-md-4">
+      <% if book.image.attached? %> 
+        <%= link_to image_tag(book.image_as_thumbnail, class: "book-showpage"), book %>
+      <% else %>
+        <div class="no-image-show-div">
+          <p class="no-image-show">We're still looking for a perfect image of this book.</p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      <h2>
+        <strong><%= book.title %></strong>
+      </h2>
+
+      <p>
+        <strong>(<%= link_to book.category.name, book.category %>)</strong>        
+      </p>
+
+      <p>
+      posted by <strong><%= book.user.user_name %></strong>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= book.description %>
+      </p>
+
+      <p>
+        <strong><%= book.author %></strong>
+      </p>
+    </div>
+
+</div>
